@@ -71,16 +71,18 @@ function draw() {
   ground.display();
 
   //faça com que o jogo se encerre se o contador chegar a 5. Coloque uma mensagem de Game OVer na tela
-   if(balls.x>0 && balls.x<300){
-     score = score + 500
-   }
-   if(balls.x>301 && balls.x<600){
-    score = score + 100
-  }
-  if(balls.x>601 && balls.x<800){
-    score = score + 200
-  }
-   
+  if (ball!=null && ball.body.position.y > 700){
+    if(0 < ball.body.position.x && ball.body.position.x < 300) {
+         score += 500;
+         ball = null;
+     }  else if (300 < ball.body.position.x && ball.body.position.x < 600) {
+         score += 100;
+         ball = null;
+     }  else if (600 < ball.body.position.x && ball.body.position.x < 800) {
+         score += 200;
+         ball = null; 
+     }      
+}
   /*
   atualize a pontuação de acordo com o número mostrado no espaço onde a bola caiu
   Se a bola estiver em uma posição y maior que 760, usar if else para:
